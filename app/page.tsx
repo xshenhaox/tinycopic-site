@@ -7,15 +7,6 @@ const siteConfig = {
   primaryDomain: "tinycopic.com",
 };
 
-const navItems = [
-  { label: "服务", href: "#services" },
-  { label: "作品", href: "#portfolio" },
-  { label: "体验", href: "#experience" },
-  { label: "套餐", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-  { label: "联系", href: "#contact" },
-];
-
 const services = [
   {
     title: "人像摄影",
@@ -54,98 +45,84 @@ const portfolio = [
     title: "天使梦境 · Angel Editorial",
     type: "Portrait",
     image: "/images/hero-angel-editorial.jpg",
-    span: "md:col-span-2 md:row-span-2",
     tone: "Soft editorial",
   },
   {
     title: "冰雪童话",
     type: "Kids",
     image: "/images/kids-fantasy-ice.jpg",
-    span: "md:row-span-2",
     tone: "Fantasy kids",
   },
   {
     title: "周岁抓拍",
     type: "Family",
     image: "/images/family-birthday.jpg",
-    span: "",
     tone: "Birthday memory",
   },
   {
     title: "极简宝宝",
     type: "Newborn",
     image: "/images/newborn-minimal.jpg",
-    span: "",
     tone: "Minimal soft light",
   },
   {
     title: "浴巾趣味肖像",
     type: "Kids",
     image: "/images/kids-towel-portrait.jpg",
-    span: "",
     tone: "Playful portrait",
   },
   {
     title: "奶油花园宝宝",
     type: "Newborn",
     image: "/images/newborn-garden-cream.jpg",
-    span: "md:col-span-2",
     tone: "Fine art newborn",
   },
   {
     title: "新年红鱼女孩",
     type: "Kids",
     image: "/images/kids-red-fish-festival.jpg",
-    span: "",
     tone: "Chinese new year",
   },
   {
     title: "红鱼女士肖像",
     type: "Portrait",
     image: "/images/portrait-red-fish-lady.jpg",
-    span: "md:row-span-2",
     tone: "Fashion red series",
   },
   {
     title: "汉服亲子",
     type: "Family",
     image: "/images/family-hanfu.jpg",
-    span: "",
     tone: "Chinese family",
   },
   {
     title: "年味餐桌家庭",
     type: "Family",
     image: "/images/family-festival-table.jpg",
-    span: "md:col-span-2",
     tone: "Festival family",
   },
   {
     title: "新年全家福",
     type: "Family",
     image: "/images/family-new-year-group.jpg",
-    span: "",
     tone: "Warm family portrait",
   },
   {
     title: "新年多代同堂",
     type: "Family",
     image: "/images/family-generations.jpg",
-    span: "",
     tone: "Generations",
   },
   {
     title: "福字亲子纪念",
     type: "Family",
     image: "/images/family-fu-lifestyle.jpg",
-    span: "md:col-span-2",
     tone: "Lifestyle family",
   },
   {
     title: "乡野新年宝宝",
     type: "Kids",
     image: "/images/kids-country-newyear.jpg",
-    span: "",
     tone: "Storytelling set",
   },
 ];
@@ -228,34 +205,45 @@ const faqs = [
   },
 ];
 
-function SectionTitle({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) {
+function SectionTitle({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+}) {
   return (
     <div>
       <div className="text-sm uppercase tracking-[0.25em] text-amber-700/70">{eyebrow}</div>
-      <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">{title}</h2>
-      {description ? <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-600">{description}</p> : null}
+      <h2 className="mt-3 text-3xl font-semibold text-neutral-900 sm:text-4xl">{title}</h2>
+      {description ? (
+        <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-600">{description}</p>
+      ) : null}
     </div>
   );
 }
 
 function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-amber-200/60 bg-amber-50/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <div>
-          <div className="text-xl font-semibold tracking-[0.2em] uppercase">Tinycopic</div>
+          <div className="text-xl font-semibold tracking-[0.2em] uppercase text-neutral-900">Tinycopic</div>
           <div className="text-xs text-neutral-500">Photography Studio · Boston</div>
         </div>
         <nav className="hidden items-center gap-8 text-sm text-neutral-700 md:flex">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="transition hover:text-neutral-900">
-              {item.label}
-            </a>
-          ))}
+          <a href="#services" className="transition hover:text-neutral-900">服务</a>
+          <a href="#portfolio" className="transition hover:text-neutral-900">作品</a>
+          <a href="#experience" className="transition hover:text-neutral-900">体验</a>
+          <a href="#pricing" className="transition hover:text-neutral-900">套餐</a>
+          <a href="/blog" className="transition hover:text-neutral-900">Blog</a>
+          <a href="#contact" className="transition hover:text-neutral-900">联系</a>
         </nav>
         <a
           href={`mailto:${siteConfig.email}`}
-          className="rounded-full border border-amber-300/70 bg-white/70 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:border-amber-400 hover:bg-white"
+          className="rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition hover:border-stone-400"
         >
           Book Now
         </a>
@@ -267,7 +255,7 @@ function SiteHeader() {
 function HeroSection() {
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.28),transparent_26%),radial-gradient(circle_at_85%_18%,rgba(255,255,255,0.75),transparent_18%),radial-gradient(circle_at_50%_100%,rgba(251,146,60,0.18),transparent_30%),linear-gradient(180deg,#fffaf0_0%,#fff6e7_42%,#fff1dc_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#fcfaf6_0%,#f7f3ec_100%)]" />
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/60 to-transparent" />
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
         <div className="relative z-10">
@@ -298,36 +286,21 @@ function HeroSection() {
               Calendly 在线预约
             </a>
           </div>
-          <div className="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
-            {[
-              ["Boston", "工作室城市"],
-              ["All Categories", "全品类拍摄"],
-              ["Warm Editorial", "明亮电影感光影"],
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="rounded-[24px] border border-white/70 bg-white/70 p-5 shadow-[0_10px_35px_rgba(251,191,36,0.12)] backdrop-blur-sm"
-              >
-                <div className="text-lg font-semibold text-neutral-900">{value}</div>
-                <div className="mt-1.5 text-sm text-neutral-600">{label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="relative z-10">
           <div className="relative mx-auto max-w-xl">
-            <div className="absolute -left-8 top-10 hidden h-32 w-32 rounded-full bg-amber-200/50 blur-3xl lg:block" />
-            <div className="absolute -right-6 bottom-8 hidden h-40 w-40 rounded-full bg-orange-200/50 blur-3xl lg:block" />
+            <div className="absolute -left-8 top-10 hidden h-32 w-32 rounded-full bg-stone-200/70 blur-3xl lg:block" />
+            <div className="absolute -right-6 bottom-8 hidden h-40 w-40 rounded-full bg-amber-100/70 blur-3xl lg:block" />
             <div className="relative overflow-hidden rounded-[36px] border border-white/80 bg-white/75 p-4 shadow-[0_30px_90px_rgba(217,119,6,0.18)] backdrop-blur-xl">
               <div className="grid gap-4 sm:grid-cols-[1.08fr_0.92fr]">
                 <div className="relative min-h-[520px] overflow-hidden rounded-[28px]">
-                  <img src="/images/hero-angel-editorial.jpg" alt="Tinycopic hero featured portrait" className="absolute inset-0 h-full w-full object-cover" />
+                  <img
+                    src="/images/hero-angel-editorial.jpg"
+                    alt="Tinycopic hero featured portrait"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(25,16,9,0.55),rgba(255,255,255,0.06)_45%,rgba(255,255,255,0.18))]" />
-                  <div className="absolute inset-x-6 top-6 flex items-center justify-between text-[11px] font-medium uppercase tracking-[0.22em] text-white/80">
-                    <span>Tinycopic Signature</span>
-                    <span>Featured Editorial</span>
-                  </div>
                   <div className="absolute inset-x-6 bottom-6 rounded-[24px] border border-white/20 bg-white/18 p-5 backdrop-blur-md">
                     <div className="text-xs uppercase tracking-[0.22em] text-white/80">Hero Collection</div>
                     <div className="mt-2 text-2xl font-semibold text-white">梦幻人像 · 高级叙事感首屏视觉</div>
@@ -340,11 +313,12 @@ function HeroSection() {
                 <div className="flex flex-col gap-4">
                   <div className="overflow-hidden rounded-[28px] border border-white/80 bg-white/80 shadow-sm">
                     <div className="relative h-[168px]">
-                      <img src="/images/kids-fantasy-ice.jpg" alt="Kids featured work" className="absolute inset-0 h-full w-full object-cover" />
+                      <img
+                        src="/images/kids-fantasy-ice.jpg"
+                        alt="Kids featured work"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
                       <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(18,18,18,0.45),transparent_55%)]" />
-                      <div className="absolute left-4 top-4 rounded-full bg-white/78 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-sky-700 backdrop-blur-sm">
-                        Kids Fantasy
-                      </div>
                     </div>
                   </div>
 
@@ -384,11 +358,14 @@ function ServicesSection() {
       </div>
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {services.map((item) => (
-          <div key={item.title} className="rounded-[28px] border border-amber-200/60 bg-amber-100/50 p-6 transition hover:-translate-y-1 hover:border-amber-300/80 hover:bg-white/70">
+          <div
+            key={item.title}
+            className="rounded-[28px] border border-amber-200/60 bg-amber-100/50 p-6 transition hover:-translate-y-1 hover:border-amber-300/80 hover:bg-white/70"
+          >
             <div className="inline-flex rounded-full border border-amber-300/40 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800">
               {item.tag}
             </div>
-            <h3 className="mt-5 text-2xl font-semibold">{item.title}</h3>
+            <h3 className="mt-5 text-2xl font-semibold text-neutral-900">{item.title}</h3>
             <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
           </div>
         ))}
@@ -404,37 +381,41 @@ function PortfolioSection() {
         <SectionTitle
           eyebrow="Portfolio"
           title="首页精选作品"
-          description="以更高级的杂志式编排展示 Tinycopic 的核心风格：梦幻人像、儿童童话、温暖家庭、周岁与新年主题。"
+          description="改成更整洁的统一网格，让整体视觉更安静、更高级，也更适合摄影工作室首页展示。"
         />
-        <div className="flex flex-wrap gap-3 text-sm">
-          {["Portrait", "Family", "Kids", "Newborn", "Festival"].map((tag) => (
-            <span key={tag} className="rounded-full border border-amber-200 bg-white/70 px-4 py-2 text-amber-800 shadow-sm">
-              {tag}
-            </span>
-          ))}
-        </div>
+        <a
+          href="/blog"
+          className="inline-flex items-center rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-neutral-800 transition hover:border-stone-400"
+        >
+          查看 Blog
+        </a>
       </div>
 
-      <div className="grid auto-rows-[220px] gap-5 md:grid-cols-3 xl:auto-rows-[240px]">
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {portfolio.map((item) => (
-          <div key={item.title} className={`group relative overflow-hidden rounded-[30px] border border-white/70 bg-amber-100/40 shadow-[0_18px_60px_rgba(217,119,6,0.10)] ${item.span}`}>
-            <img src={item.image} alt={item.title} className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(16,16,16,0.72),rgba(16,16,16,0.10)_40%,rgba(255,255,255,0.04))]" />
-            <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-3">
-              <span className="rounded-full border border-white/35 bg-white/15 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.24em] text-white backdrop-blur-md">
-                {item.type}
-              </span>
-              <span className="rounded-full bg-black/20 px-3 py-1 text-[11px] font-medium tracking-[0.18em] text-white/80 backdrop-blur-md">
-                {item.tone}
-              </span>
+          <article
+            key={item.title}
+            className="group overflow-hidden rounded-[28px] border border-stone-200 bg-white shadow-[0_14px_40px_rgba(0,0,0,0.04)]"
+          >
+            <div className="relative aspect-[4/5] overflow-hidden bg-stone-100">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+              />
             </div>
-            <div className="absolute inset-x-0 bottom-0 p-5">
-              <div className="rounded-[24px] border border-white/15 bg-black/20 p-4 backdrop-blur-md">
-                <div className="text-xl font-semibold text-white">{item.title}</div>
-                <div className="mt-1 text-sm text-white/75">Tinycopic Featured Work</div>
+            <div className="space-y-3 p-5">
+              <div className="flex items-center justify-between gap-3">
+                <span className="rounded-full bg-stone-100 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-600">
+                  {item.type}
+                </span>
+                <span className="text-[12px] tracking-[0.12em] text-neutral-500">
+                  {item.tone}
+                </span>
               </div>
+              <div className="text-xl font-semibold text-neutral-900">{item.title}</div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>
@@ -451,12 +432,8 @@ function ExperienceSection() {
         </p>
         <div className="mt-8 rounded-[26px] border border-amber-200/60 bg-amber-100 p-6">
           <div className="text-xs uppercase tracking-[0.22em] text-neutral-500">Contact</div>
-          <div className="mt-3 text-lg font-medium">{siteConfig.email}</div>
+          <div className="mt-3 text-lg font-medium text-neutral-900">{siteConfig.email}</div>
           <div className="mt-2 text-sm text-neutral-600">Instagram: @{siteConfig.instagram}</div>
-          <div className="mt-5 flex gap-3">
-            <a href={`mailto:${siteConfig.email}`} className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black">发送邮件</a>
-            <a href={siteConfig.calendlyUrl} className="rounded-full border border-amber-300/70 px-4 py-2 text-sm font-semibold text-amber-800 hover:bg-white/70">Calendly</a>
-          </div>
         </div>
       </div>
 
@@ -464,7 +441,7 @@ function ExperienceSection() {
         {process.map((item) => (
           <div key={item.step} className="rounded-[28px] border border-amber-200/60 bg-amber-100/50 p-6">
             <div className="text-sm font-semibold text-amber-700/80">{item.step}</div>
-            <h3 className="mt-4 text-2xl font-semibold">{item.title}</h3>
+            <h3 className="mt-4 text-2xl font-semibold text-neutral-900">{item.title}</h3>
             <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
           </div>
         ))}
@@ -502,7 +479,10 @@ function PricingSection() {
       </div>
       <div className="grid gap-5 lg:grid-cols-3">
         {pricing.map((item) => (
-          <div key={item.title} className="rounded-[30px] border border-amber-200/70 bg-white/75 p-6 shadow-[0_16px_50px_rgba(217,119,6,0.08)]">
+          <div
+            key={item.title}
+            className="rounded-[30px] border border-amber-200/70 bg-white/75 p-6 shadow-[0_16px_50px_rgba(217,119,6,0.08)]"
+          >
             <div className="text-sm uppercase tracking-[0.22em] text-amber-700/80">{item.title}</div>
             <div className="mt-4 text-4xl font-semibold text-neutral-900">{item.price}</div>
             <p className="mt-4 text-sm leading-7 text-neutral-600">{item.desc}</p>
@@ -529,7 +509,7 @@ function FAQSection() {
       <div className="grid gap-4">
         {faqs.map((item) => (
           <div key={item.q} className="rounded-[24px] border border-amber-200/60 bg-amber-100/50 p-6">
-            <div className="text-lg font-semibold">{item.q}</div>
+            <div className="text-lg font-semibold text-neutral-900">{item.q}</div>
             <div className="mt-3 text-sm leading-7 text-neutral-600">{item.a}</div>
           </div>
         ))}
@@ -545,7 +525,7 @@ function ContactSection() {
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
             <div className="text-sm uppercase tracking-[0.25em] text-neutral-600">{siteConfig.studioName}</div>
-            <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
+            <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-neutral-900 sm:text-5xl">
               让网站成为你工作室最稳定的获客入口。
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-neutral-700">
@@ -554,13 +534,15 @@ function ContactSection() {
           </div>
           <div className="rounded-[28px] border border-amber-200/60 bg-amber-100 p-6">
             <div className="text-sm text-neutral-500">预约邮箱</div>
-            <a href={`mailto:${siteConfig.email}`} className="mt-2 block text-2xl font-semibold">{siteConfig.email}</a>
+            <a href={`mailto:${siteConfig.email}`} className="mt-2 block text-2xl font-semibold text-neutral-900">
+              {siteConfig.email}
+            </a>
             <div className="mt-5 text-sm text-neutral-500">Instagram</div>
-            <div className="mt-2 text-lg font-medium">@{siteConfig.instagram}</div>
+            <div className="mt-2 text-lg font-medium text-neutral-900">@{siteConfig.instagram}</div>
             <div className="mt-5 text-sm text-neutral-500">网站域名</div>
-            <div className="mt-2 text-lg font-medium">{siteConfig.primaryDomain}</div>
+            <div className="mt-2 text-lg font-medium text-neutral-900">{siteConfig.primaryDomain}</div>
             <div className="mt-5 text-sm text-neutral-500">预约方式</div>
-            <div className="mt-2 text-lg font-medium">Email / Calendly</div>
+            <div className="mt-2 text-lg font-medium text-neutral-900">Email / Calendly</div>
           </div>
         </div>
       </div>
@@ -570,10 +552,11 @@ function ContactSection() {
 
 function SiteFooter() {
   return (
-    <footer className="border-t border-amber-200/60 bg-white/50">
+    <footer className="border-t border-stone-200 bg-white/70">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-neutral-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div>© 2026 {siteConfig.studioName}. All rights reserved.</div>
         <div className="flex flex-wrap gap-5">
+          <a href="/blog" className="hover:text-neutral-900">Blog</a>
           <a href={siteConfig.calendlyUrl} className="hover:text-neutral-900">Book a Session</a>
           <a href={`mailto:${siteConfig.email}`} className="hover:text-neutral-900">Email</a>
           <a href={`https://instagram.com/${siteConfig.instagram}`} className="hover:text-neutral-900">Instagram</a>
