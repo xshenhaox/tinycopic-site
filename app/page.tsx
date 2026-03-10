@@ -40,90 +40,42 @@ const services = [
   },
 ];
 
-const portfolio = [
+const featuredPortfolio = [
   {
     title: "天使梦境 · Angel Editorial",
     type: "Portrait",
     image: "/images/hero-angel-editorial.jpg",
-    tone: "Soft editorial",
+    note: "Soft editorial",
   },
   {
     title: "冰雪童话",
     type: "Kids",
     image: "/images/kids-fantasy-ice.jpg",
-    tone: "Fantasy kids",
+    note: "Fantasy kids",
   },
   {
     title: "周岁抓拍",
     type: "Family",
     image: "/images/family-birthday.jpg",
-    tone: "Birthday memory",
+    note: "Birthday memory",
   },
   {
     title: "极简宝宝",
     type: "Newborn",
     image: "/images/newborn-minimal.jpg",
-    tone: "Minimal soft light",
-  },
-  {
-    title: "浴巾趣味肖像",
-    type: "Kids",
-    image: "/images/kids-towel-portrait.jpg",
-    tone: "Playful portrait",
-  },
-  {
-    title: "奶油花园宝宝",
-    type: "Newborn",
-    image: "/images/newborn-garden-cream.jpg",
-    tone: "Fine art newborn",
-  },
-  {
-    title: "新年红鱼女孩",
-    type: "Kids",
-    image: "/images/kids-red-fish-festival.jpg",
-    tone: "Chinese new year",
+    note: "Minimal soft light",
   },
   {
     title: "红鱼女士肖像",
     type: "Portrait",
     image: "/images/portrait-red-fish-lady.jpg",
-    tone: "Fashion red series",
+    note: "Fashion red series",
   },
   {
-    title: "汉服亲子",
-    type: "Family",
-    image: "/images/family-hanfu.jpg",
-    tone: "Chinese family",
-  },
-  {
-    title: "年味餐桌家庭",
-    type: "Family",
-    image: "/images/family-festival-table.jpg",
-    tone: "Festival family",
-  },
-  {
-    title: "新年全家福",
-    type: "Family",
-    image: "/images/family-new-year-group.jpg",
-    tone: "Warm family portrait",
-  },
-  {
-    title: "新年多代同堂",
-    type: "Family",
-    image: "/images/family-generations.jpg",
-    tone: "Generations",
-  },
-  {
-    title: "福字亲子纪念",
-    type: "Family",
-    image: "/images/family-fu-lifestyle.jpg",
-    tone: "Lifestyle family",
-  },
-  {
-    title: "乡野新年宝宝",
-    type: "Kids",
-    image: "/images/kids-country-newyear.jpg",
-    tone: "Storytelling set",
+    title: "奶油花园宝宝",
+    type: "Newborn",
+    image: "/images/newborn-garden-cream.jpg",
+    note: "Fine art newborn",
   },
 ];
 
@@ -186,6 +138,21 @@ const testimonials = [
   },
 ];
 
+const blogPosts = [
+  {
+    title: "How to Prepare for a Family Photo Session in Boston",
+    excerpt: "帮助家庭客户在拍摄前做好服装、情绪和时间准备。",
+  },
+  {
+    title: "What to Wear for a Studio Portrait Session",
+    excerpt: "从色彩、材质到整体氛围，帮客户更容易出片。",
+  },
+  {
+    title: "Newborn Photography Tips for First-Time Parents",
+    excerpt: "让第一次拍新生儿照片的家庭更安心、更高效。",
+  },
+];
+
 const faqs = [
   {
     q: "你们拍哪些类型？",
@@ -216,7 +183,7 @@ function SectionTitle({
 }) {
   return (
     <div>
-      <div className="text-sm uppercase tracking-[0.25em] text-amber-700/70">{eyebrow}</div>
+      <div className="text-sm uppercase tracking-[0.25em] text-stone-500">{eyebrow}</div>
       <h2 className="mt-3 text-3xl font-semibold text-neutral-900 sm:text-4xl">{title}</h2>
       {description ? (
         <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-600">{description}</p>
@@ -227,7 +194,7 @@ function SectionTitle({
 
 function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <div>
           <div className="text-xl font-semibold tracking-[0.2em] uppercase text-neutral-900">Tinycopic</div>
@@ -238,11 +205,11 @@ function SiteHeader() {
           <a href="#portfolio" className="transition hover:text-neutral-900">作品</a>
           <a href="#experience" className="transition hover:text-neutral-900">体验</a>
           <a href="#pricing" className="transition hover:text-neutral-900">套餐</a>
-          <a href="/blog" className="transition hover:text-neutral-900">Blog</a>
+          <a href="#blog" className="transition hover:text-neutral-900">Blog</a>
           <a href="#contact" className="transition hover:text-neutral-900">联系</a>
         </nav>
         <a
-          href={`mailto:${siteConfig.email}`}
+          href={siteConfig.calendlyUrl}
           className="rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition hover:border-stone-400"
         >
           Book Now
@@ -255,88 +222,88 @@ function SiteHeader() {
 function HeroSection() {
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,#fcfaf6_0%,#f7f3ec_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/60 to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#fcfaf6_0%,#f4efe7_100%)]" />
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
         <div className="relative z-10">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-300/60 bg-white/70 px-4 py-2 text-xs font-medium tracking-[0.18em] text-amber-700 shadow-sm backdrop-blur-sm">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white/80 px-4 py-2 text-xs font-medium tracking-[0.18em] text-stone-700 shadow-sm backdrop-blur-sm">
             BOSTON PHOTOGRAPHY STUDIO · PORTRAIT · FAMILY · NEWBORN · BRIDAL
           </div>
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl xl:text-[5.4rem]">
-            让每一次拍摄，
-            <span className="block bg-gradient-to-r from-amber-700 via-orange-500 to-rose-400 bg-clip-text text-transparent">
-              都像一组值得收藏的大片。
-            </span>
+          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl xl:text-[5.2rem]">
+            Tinycopic v2
+            <span className="block text-stone-700">更整洁、更专业、更适合获客。</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-neutral-700 lg:text-xl">
             Tinycopic 摄影工作室位于 Boston，专注人像摄影、家庭、儿童、新生婴儿、婚纱与高级定制拍摄。
-            用更温暖、更明亮、更有电影感的光影，记录真正属于你的情绪与故事。
+            这一版首页更强调整洁的视觉秩序、作品展示效率，以及后续扩展 Blog 与 SEO 的能力。
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <a
-              href={`mailto:${siteConfig.email}`}
-              className="rounded-full bg-neutral-900 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-amber-200/60 transition hover:-translate-y-0.5 hover:bg-black"
+              href={siteConfig.calendlyUrl}
+              className="rounded-full bg-neutral-900 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-black"
             >
               立即预约拍摄
             </a>
             <a
-              href={siteConfig.calendlyUrl}
-              className="rounded-full border border-amber-300/70 bg-white/70 px-7 py-3.5 text-sm font-semibold text-amber-800 transition hover:border-amber-400 hover:bg-white"
+              href="#portfolio"
+              className="rounded-full border border-stone-300 bg-white px-7 py-3.5 text-sm font-semibold text-neutral-900 transition hover:border-stone-400"
             >
-              Calendly 在线预约
+              浏览精选作品
             </a>
+          </div>
+          <div className="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
+            {[
+              ["Boston", "工作室城市"],
+              ["Editorial Warmth", "高级温暖质感"],
+              ["Family to Bridal", "多品类拍摄"],
+            ].map(([value, label]) => (
+              <div key={label} className="rounded-[22px] border border-stone-200 bg-white/80 p-5 shadow-sm">
+                <div className="text-lg font-semibold text-neutral-900">{value}</div>
+                <div className="mt-1.5 text-sm text-neutral-500">{label}</div>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="relative z-10">
-          <div className="relative mx-auto max-w-xl">
-            <div className="absolute -left-8 top-10 hidden h-32 w-32 rounded-full bg-stone-200/70 blur-3xl lg:block" />
-            <div className="absolute -right-6 bottom-8 hidden h-40 w-40 rounded-full bg-amber-100/70 blur-3xl lg:block" />
-            <div className="relative overflow-hidden rounded-[36px] border border-white/80 bg-white/75 p-4 shadow-[0_30px_90px_rgba(217,119,6,0.18)] backdrop-blur-xl">
-              <div className="grid gap-4 sm:grid-cols-[1.08fr_0.92fr]">
-                <div className="relative min-h-[520px] overflow-hidden rounded-[28px]">
+          <div className="grid gap-4 sm:grid-cols-[1.08fr_0.92fr]">
+            <div className="relative min-h-[520px] overflow-hidden rounded-[30px] border border-white/80 bg-white shadow-[0_24px_60px_rgba(0,0,0,0.08)]">
+              <img
+                src="/images/hero-angel-editorial.jpg"
+                alt="Tinycopic hero featured portrait"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(20,20,20,0.48),rgba(20,20,20,0.02)_50%,rgba(255,255,255,0.08))]" />
+              <div className="absolute inset-x-6 bottom-6 rounded-[24px] border border-white/15 bg-black/15 p-5 backdrop-blur-md">
+                <div className="text-xs uppercase tracking-[0.22em] text-white/80">Signature Portrait</div>
+                <div className="mt-2 text-2xl font-semibold text-white">梦幻人像 · 高级叙事感主视觉</div>
+                <div className="mt-2 text-sm leading-6 text-white/80">
+                  让访客在进入首页的第一秒就感受到 Tinycopic 的审美与拍摄能力。
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <div className="overflow-hidden rounded-[28px] border border-stone-200 bg-white shadow-sm">
+                <div className="relative h-[168px]">
                   <img
-                    src="/images/hero-angel-editorial.jpg"
-                    alt="Tinycopic hero featured portrait"
+                    src="/images/kids-fantasy-ice.jpg"
+                    alt="Kids featured work"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(25,16,9,0.55),rgba(255,255,255,0.06)_45%,rgba(255,255,255,0.18))]" />
-                  <div className="absolute inset-x-6 bottom-6 rounded-[24px] border border-white/20 bg-white/18 p-5 backdrop-blur-md">
-                    <div className="text-xs uppercase tracking-[0.22em] text-white/80">Hero Collection</div>
-                    <div className="mt-2 text-2xl font-semibold text-white">梦幻人像 · 高级叙事感首屏视觉</div>
-                    <div className="mt-2 text-sm leading-6 text-white/80">
-                      用真实作品作为网站第一视觉，让访客在进入首页的第一秒就感受到 Tinycopic 的审美与拍摄能力。
-                    </div>
-                  </div>
                 </div>
-
-                <div className="flex flex-col gap-4">
-                  <div className="overflow-hidden rounded-[28px] border border-white/80 bg-white/80 shadow-sm">
-                    <div className="relative h-[168px]">
-                      <img
-                        src="/images/kids-fantasy-ice.jpg"
-                        alt="Kids featured work"
-                        className="absolute inset-0 h-full w-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(18,18,18,0.45),transparent_55%)]" />
-                    </div>
-                  </div>
-
-                  <div className="rounded-[28px] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,247,237,0.88))] p-6 shadow-sm">
-                    <div className="text-xs uppercase tracking-[0.22em] text-amber-700/80">Instagram</div>
-                    <div className="mt-4 text-2xl font-semibold text-neutral-900">@{siteConfig.instagram}</div>
-                    <div className="mt-3 text-sm leading-6 text-neutral-600">
-                      持续更新 Boston 高级棚拍、人像摄影、儿童与家庭类作品内容。
-                    </div>
-                  </div>
-
-                  <div className="rounded-[28px] border border-amber-200/80 bg-gradient-to-br from-amber-100/90 via-white to-orange-100/80 p-6 shadow-sm">
-                    <div className="text-xs uppercase tracking-[0.22em] text-amber-800/80">Booking</div>
-                    <div className="mt-4 text-xl font-semibold text-neutral-900">Email + Calendly</div>
-                    <div className="mt-3 text-sm leading-6 text-neutral-600">
-                      从咨询、风格沟通到锁定拍摄时间，让预约流程更顺畅、更专业。
-                    </div>
-                  </div>
+              </div>
+              <div className="rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm">
+                <div className="text-xs uppercase tracking-[0.22em] text-stone-500">Instagram</div>
+                <div className="mt-4 text-2xl font-semibold text-neutral-900">@{siteConfig.instagram}</div>
+                <div className="mt-3 text-sm leading-6 text-neutral-600">
+                  持续更新 Boston 高级棚拍、人像摄影、儿童与家庭类作品内容。
+                </div>
+              </div>
+              <div className="rounded-[28px] border border-stone-200 bg-stone-50 p-6 shadow-sm">
+                <div className="text-xs uppercase tracking-[0.22em] text-stone-500">Booking</div>
+                <div className="mt-4 text-xl font-semibold text-neutral-900">Email + Calendly</div>
+                <div className="mt-3 text-sm leading-6 text-neutral-600">
+                  从咨询、风格沟通到锁定拍摄时间，让预约流程更顺畅、更专业。
                 </div>
               </div>
             </div>
@@ -351,7 +318,7 @@ function ServicesSection() {
   return (
     <section id="services" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
       <div className="mb-10 flex items-end justify-between gap-6">
-        <SectionTitle eyebrow="Services" title="覆盖摄影工作室的核心高端服务" />
+        <SectionTitle eyebrow="Services" title="覆盖摄影工作室的核心服务" />
         <div className="hidden max-w-md text-sm leading-7 text-neutral-600 md:block">
           兼顾审美表达与商业效率，适合个人、家庭与品牌客户长期合作。
         </div>
@@ -360,9 +327,9 @@ function ServicesSection() {
         {services.map((item) => (
           <div
             key={item.title}
-            className="rounded-[28px] border border-amber-200/60 bg-amber-100/50 p-6 transition hover:-translate-y-1 hover:border-amber-300/80 hover:bg-white/70"
+            className="rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
           >
-            <div className="inline-flex rounded-full border border-amber-300/40 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800">
+            <div className="inline-flex rounded-full bg-stone-100 px-3 py-1 text-xs font-medium text-stone-700">
               {item.tag}
             </div>
             <h3 className="mt-5 text-2xl font-semibold text-neutral-900">{item.title}</h3>
@@ -380,11 +347,11 @@ function PortfolioSection() {
       <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <SectionTitle
           eyebrow="Portfolio"
-          title="首页精选作品"
-          description="改成更整洁的统一网格，让整体视觉更安静、更高级，也更适合摄影工作室首页展示。"
+          title="精选作品"
+          description="统一比例网格，让整体视觉更安静、更高级，也更适合摄影工作室首页展示。"
         />
         <a
-          href="/blog"
+          href="#blog"
           className="inline-flex items-center rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-neutral-800 transition hover:border-stone-400"
         >
           查看 Blog
@@ -392,7 +359,7 @@ function PortfolioSection() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {portfolio.map((item) => (
+        {featuredPortfolio.map((item) => (
           <article
             key={item.title}
             className="group overflow-hidden rounded-[28px] border border-stone-200 bg-white shadow-[0_14px_40px_rgba(0,0,0,0.04)]"
@@ -409,9 +376,7 @@ function PortfolioSection() {
                 <span className="rounded-full bg-stone-100 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-600">
                   {item.type}
                 </span>
-                <span className="text-[12px] tracking-[0.12em] text-neutral-500">
-                  {item.tone}
-                </span>
+                <span className="text-[12px] tracking-[0.12em] text-neutral-500">{item.note}</span>
               </div>
               <div className="text-xl font-semibold text-neutral-900">{item.title}</div>
             </div>
@@ -425,12 +390,12 @@ function PortfolioSection() {
 function ExperienceSection() {
   return (
     <section id="experience" className="mx-auto grid max-w-7xl gap-8 px-6 py-20 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-      <div className="rounded-[32px] border border-amber-200/60 bg-amber-100/50 p-8">
+      <div className="rounded-[32px] border border-stone-200 bg-white p-8 shadow-sm">
         <SectionTitle eyebrow="Experience" title="不仅是拍照，更是完整体验设计" />
         <p className="mt-5 text-base leading-8 text-neutral-600">
-          从拍摄前沟通，到现场引导、服装建议、光线控制、精修交付，Tinycopic 的网站结构会围绕“高端体验感”设计，而不只是展示作品。
+          从拍摄前沟通，到现场引导、服装建议、光线控制、精修交付，Tinycopic 的网站结构会围绕高端体验感设计，而不只是展示作品。
         </p>
-        <div className="mt-8 rounded-[26px] border border-amber-200/60 bg-amber-100 p-6">
+        <div className="mt-8 rounded-[26px] border border-stone-200 bg-stone-50 p-6">
           <div className="text-xs uppercase tracking-[0.22em] text-neutral-500">Contact</div>
           <div className="mt-3 text-lg font-medium text-neutral-900">{siteConfig.email}</div>
           <div className="mt-2 text-sm text-neutral-600">Instagram: @{siteConfig.instagram}</div>
@@ -439,8 +404,8 @@ function ExperienceSection() {
 
       <div className="grid gap-5 md:grid-cols-2">
         {process.map((item) => (
-          <div key={item.step} className="rounded-[28px] border border-amber-200/60 bg-amber-100/50 p-6">
-            <div className="text-sm font-semibold text-amber-700/80">{item.step}</div>
+          <div key={item.step} className="rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm">
+            <div className="text-sm font-semibold text-stone-500">{item.step}</div>
             <h3 className="mt-4 text-2xl font-semibold text-neutral-900">{item.title}</h3>
             <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
           </div>
@@ -454,11 +419,11 @@ function TestimonialsSection() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
       <div className="mb-10">
-        <SectionTitle eyebrow="Testimonials" title="让用户愿意下单的信任模块" />
+        <SectionTitle eyebrow="Testimonials" title="客户评价" />
       </div>
       <div className="grid gap-5 lg:grid-cols-3">
         {testimonials.map((item) => (
-          <div key={item.name} className="rounded-[28px] border border-amber-200/60 bg-amber-100/50 p-6">
+          <div key={item.name} className="rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm">
             <div className="text-base leading-8 text-neutral-700">“{item.text}”</div>
             <div className="mt-6 text-sm font-medium text-neutral-500">{item.name}</div>
           </div>
@@ -474,26 +439,52 @@ function PricingSection() {
       <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <SectionTitle eyebrow="Pricing" title="清晰套餐，方便客户快速下单" />
         <p className="max-w-2xl text-base leading-7 text-neutral-600">
-          这部分可继续替换成你的真实价格。当前先做成适合上线的高端摄影工作室价格结构。
+          先做成适合上线的高端摄影工作室价格结构，后续可以再替换成你的真实报价。
         </p>
       </div>
       <div className="grid gap-5 lg:grid-cols-3">
         {pricing.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-[30px] border border-amber-200/70 bg-white/75 p-6 shadow-[0_16px_50px_rgba(217,119,6,0.08)]"
-          >
-            <div className="text-sm uppercase tracking-[0.22em] text-amber-700/80">{item.title}</div>
+          <div key={item.title} className="rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm">
+            <div className="text-sm uppercase tracking-[0.22em] text-stone-500">{item.title}</div>
             <div className="mt-4 text-4xl font-semibold text-neutral-900">{item.price}</div>
             <p className="mt-4 text-sm leading-7 text-neutral-600">{item.desc}</p>
             <div className="mt-5 space-y-3">
               {item.points.map((point) => (
-                <div key={point} className="rounded-full bg-amber-50 px-4 py-2 text-sm text-neutral-700">
+                <div key={point} className="rounded-full bg-stone-100 px-4 py-2 text-sm text-neutral-700">
                   {point}
                 </div>
               ))}
             </div>
           </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function BlogSection() {
+  return (
+    <section id="blog" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <SectionTitle
+          eyebrow="Blog"
+          title="内容与获客入口"
+          description="这一块是 Tinycopic v2 新增的重要模块，后续可以用来做 Boston SEO、摄影指南和客户教育内容。"
+        />
+        <a
+          href="/blog"
+          className="inline-flex items-center rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-neutral-800 transition hover:border-stone-400"
+        >
+          打开 Blog 页面
+        </a>
+      </div>
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {blogPosts.map((post) => (
+          <article key={post.title} className="rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm">
+            <div className="text-sm uppercase tracking-[0.18em] text-stone-500">Photography Guide</div>
+            <h3 className="mt-4 text-xl font-semibold text-neutral-900">{post.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-neutral-600">{post.excerpt}</p>
+          </article>
         ))}
       </div>
     </section>
@@ -508,7 +499,7 @@ function FAQSection() {
       </div>
       <div className="grid gap-4">
         {faqs.map((item) => (
-          <div key={item.q} className="rounded-[24px] border border-amber-200/60 bg-amber-100/50 p-6">
+          <div key={item.q} className="rounded-[24px] border border-stone-200 bg-white p-6 shadow-sm">
             <div className="text-lg font-semibold text-neutral-900">{item.q}</div>
             <div className="mt-3 text-sm leading-7 text-neutral-600">{item.a}</div>
           </div>
@@ -521,18 +512,18 @@ function FAQSection() {
 function ContactSection() {
   return (
     <section id="contact" className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
-      <div className="overflow-hidden rounded-[36px] border border-amber-200/60 bg-[linear-gradient(135deg,rgba(251,191,36,0.18),rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-8 md:p-10">
+      <div className="overflow-hidden rounded-[36px] border border-stone-200 bg-white p-8 shadow-sm md:p-10">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
-            <div className="text-sm uppercase tracking-[0.25em] text-neutral-600">{siteConfig.studioName}</div>
+            <div className="text-sm uppercase tracking-[0.25em] text-neutral-500">{siteConfig.studioName}</div>
             <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-neutral-900 sm:text-5xl">
-              让网站成为你工作室最稳定的获客入口。
+              让网站成为你工作室稳定的获客入口。
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-neutral-700">
-              现在这是一版稳定的摄影工作室首页结构，适合直接运行和继续展示作品、套餐、预约入口。
+              现在这是一版更整洁的 Tinycopic v2 首页结构，适合继续扩展 Portfolio、Pricing、Blog 和多页面 SEO。
             </p>
           </div>
-          <div className="rounded-[28px] border border-amber-200/60 bg-amber-100 p-6">
+          <div className="rounded-[28px] border border-stone-200 bg-stone-50 p-6">
             <div className="text-sm text-neutral-500">预约邮箱</div>
             <a href={`mailto:${siteConfig.email}`} className="mt-2 block text-2xl font-semibold text-neutral-900">
               {siteConfig.email}
@@ -556,7 +547,7 @@ function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-neutral-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div>© 2026 {siteConfig.studioName}. All rights reserved.</div>
         <div className="flex flex-wrap gap-5">
-          <a href="/blog" className="hover:text-neutral-900">Blog</a>
+          <a href="#blog" className="hover:text-neutral-900">Blog</a>
           <a href={siteConfig.calendlyUrl} className="hover:text-neutral-900">Book a Session</a>
           <a href={`mailto:${siteConfig.email}`} className="hover:text-neutral-900">Email</a>
           <a href={`https://instagram.com/${siteConfig.instagram}`} className="hover:text-neutral-900">Instagram</a>
@@ -568,7 +559,7 @@ function SiteFooter() {
 
 export default function TinycopicStudioSite() {
   return (
-    <div className="min-h-screen bg-amber-50 text-neutral-900">
+    <div className="min-h-screen bg-stone-50 text-neutral-900">
       <SiteHeader />
       <HeroSection />
       <ServicesSection />
@@ -576,6 +567,7 @@ export default function TinycopicStudioSite() {
       <ExperienceSection />
       <TestimonialsSection />
       <PricingSection />
+      <BlogSection />
       <FAQSection />
       <ContactSection />
       <SiteFooter />
