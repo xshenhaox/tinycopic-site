@@ -549,7 +549,7 @@ function ContactSection() {
               让网站成为你工作室最稳定的获客入口。
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-neutral-700">
-              现在这是一版升级后的模块化首页结构。下一步可以继续拆分成 /portfolio、/pricing、/about、/contact 多页面，并加入博客、SEO 城市落地页和客户选片系统。
+              现在这是一版稳定的摄影工作室首页结构，适合直接运行和继续展示作品、套餐、预约入口。
             </p>
           </div>
           <div className="rounded-[28px] border border-amber-200/60 bg-amber-100 p-6">
