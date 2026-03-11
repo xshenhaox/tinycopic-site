@@ -75,18 +75,10 @@ function Header() {
         </a>
 
         <nav className="hidden items-center gap-8 text-sm text-neutral-700 md:flex">
-          <a href="/" className="hover:text-black">
-            Home
-          </a>
-          <a href="/portfolio" className="hover:text-black">
-            Portfolio
-          </a>
-          <a href="/blog" className="font-medium text-black">
-            Blog
-          </a>
-          <a href="/contact" className="hover:text-black">
-            Contact
-          </a>
+          <a href="/" className="hover:text-black">Home</a>
+          <a href="/portfolio" className="hover:text-black">Portfolio</a>
+          <a href="/blog" className="font-medium text-black">Blog</a>
+          <a href="/contact" className="hover:text-black">Contact</a>
         </nav>
 
         <a
@@ -102,7 +94,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="bg-[linear-gradient(180deg,#fcfaf7_0%,#f5efe7_55%,#f3ece4_100%)] py-16 lg:py-24">
+    <section className="bg-[linear-gradient(180deg,#fbf8f3_0%,#f3ece2_58%,#efe7de_100%)] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-4xl">
           <div className="inline-flex w-fit items-center rounded-full border border-stone-300 bg-white/80 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.24em] text-stone-700">
@@ -117,7 +109,7 @@ function Hero() {
           </h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-8 text-neutral-700 lg:text-xl">
-            This v5 blog page helps Tinycopic look more like a long-term premium
+            This v6 blog page helps Tinycopic feel more like a long-term premium
             studio brand. It supports content discovery, builds trust and gives
             your website stronger search visibility over time.
           </p>
@@ -132,7 +124,7 @@ function FeaturedArticle() {
     <section className="py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="overflow-hidden rounded-[32px] border border-stone-200 bg-white shadow-sm">
+          <div className="overflow-hidden rounded-[34px] border border-stone-200 bg-white shadow-sm">
             <div className="relative aspect-[16/10] overflow-hidden">
               <img
                 src={featuredPost.image}
@@ -229,7 +221,7 @@ function ArticlesGrid() {
           {blogPosts.map((post) => (
             <article
               key={post.title}
-              className="rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
               <div className="inline-flex rounded-full bg-stone-100 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-stone-600">
                 {post.category}
@@ -258,7 +250,7 @@ function CTASection() {
   return (
     <section className="pb-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[38px] border border-stone-200 bg-[linear-gradient(135deg,#ffffff_0%,#faf7f2_100%)] p-8 shadow-sm md:p-10">
+        <div className="overflow-hidden rounded-[40px] border border-stone-200 bg-[linear-gradient(135deg,#ffffff_0%,#faf7f2_100%)] p-8 shadow-sm md:p-10">
           <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
             <div>
               <div className="text-sm uppercase tracking-[0.25em] text-neutral-500">
