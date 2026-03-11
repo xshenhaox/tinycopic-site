@@ -187,12 +187,28 @@ const faqs = [
   },
 ];
 
-function SectionHeader({ eyebrow, title, description }) {
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+}) {
   return (
     <div className="max-w-3xl">
-      <div className="text-xs uppercase tracking-[0.28em] text-stone-500">{eyebrow}</div>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">{title}</h2>
-      {description ? <p className="mt-4 text-base leading-7 text-neutral-600">{description}</p> : null}
+      <div className="text-xs uppercase tracking-[0.28em] text-stone-500">
+        {eyebrow}
+      </div>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+        {title}
+      </h2>
+      {description ? (
+        <p className="mt-4 text-base leading-7 text-neutral-600">
+          {description}
+        </p>
+      ) : null}
     </div>
   );
 }
