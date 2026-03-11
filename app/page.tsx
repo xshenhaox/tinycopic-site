@@ -143,6 +143,8 @@ const stats = [
   { value: "Luxury", label: "Editorial visual tone" },
   { value: "SEO Ready", label: "Built for long-term growth" },
   { value: "Fast Booking", label: "Calendly conversion path" },
+  { value: "Curated", label: "Client experience focus" },
+  { value: "Premium", label: "Retouching finish" },
 ];
 
 const process = [
@@ -198,17 +200,9 @@ function SectionHeader({
 }) {
   return (
     <div className="max-w-3xl">
-      <div className="text-xs uppercase tracking-[0.28em] text-stone-500">
-        {eyebrow}
-      </div>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-        {title}
-      </h2>
-      {description ? (
-        <p className="mt-4 text-base leading-7 text-neutral-600">
-          {description}
-        </p>
-      ) : null}
+      <div className="text-xs uppercase tracking-[0.28em] text-stone-500">{eyebrow}</div>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">{title}</h2>
+      {description ? <p className="mt-4 text-base leading-7 text-neutral-600">{description}</p> : null}
     </div>
   );
 }
@@ -249,12 +243,12 @@ function Hero() {
           <div className="inline-flex w-fit items-center rounded-full border border-stone-300 bg-white/80 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.24em] text-stone-700">
             Boston Portrait · Family · Kids · Newborn · Bridal
           </div>
-          <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-[0.94] tracking-tight text-neutral-950 sm:text-6xl lg:text-7xl xl:text-[6rem]">
-            Tinycopic v6
-            <span className="mt-2 block text-stone-600">a flagship homepage for a top-tier photography brand.</span>
+          <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-[0.92] tracking-tight text-neutral-950 sm:text-6xl lg:text-7xl xl:text-[6.2rem]">
+            Tinycopic v7
+            <span className="mt-2 block text-stone-600">a cinematic flagship site for a luxury studio brand.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-neutral-700 lg:text-xl">
-            A more cinematic, premium and conversion-focused homepage for a Boston photography studio — designed to elevate brand perception, showcase visual authority and support long-term SEO growth.
+            A more cinematic, premium and conversion-focused homepage for a Boston photography studio — designed to elevate brand perception, showcase visual authority, support long-term SEO growth and feel closer to a luxury editorial brand site.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <a
@@ -270,7 +264,7 @@ function Hero() {
               View Portfolio
             </a>
           </div>
-          <div className="mt-10 grid max-w-4xl gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {stats.map((item) => (
               <div key={item.label} className="rounded-2xl border border-stone-200 bg-white/85 p-5 shadow-sm">
                 <div className="text-lg font-semibold text-neutral-950">{item.value}</div>
@@ -281,7 +275,7 @@ function Hero() {
         </div>
 
         <div className="relative z-10 grid gap-4 sm:grid-cols-[1.08fr_0.92fr]">
-          <div className="relative min-h-[600px] overflow-hidden rounded-[36px] border border-white/80 bg-white shadow-[0_30px_90px_rgba(0,0,0,0.11)]">
+          <div className="relative min-h-[620px] overflow-hidden rounded-[36px] border border-white/80 bg-white shadow-[0_30px_90px_rgba(0,0,0,0.11)]">
             <video
               autoPlay
               muted
@@ -292,7 +286,7 @@ function Hero() {
             >
               <source src="/videos/hero-reel.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(15,15,15,0.60),rgba(15,15,15,0.10)_46%,rgba(255,255,255,0.08))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(15,15,15,0.62),rgba(15,15,15,0.10)_46%,rgba(255,255,255,0.08))]" />
             <div className="absolute left-6 top-6 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-white backdrop-blur-md">
               Signature Film Banner
             </div>
@@ -571,7 +565,7 @@ function Contact() {
                 A homepage with both aesthetic value and real conversion intent.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-neutral-700">
-                Tinycopic v6 is designed to feel closer to a flagship luxury studio site — one that can grow naturally into a full portfolio, pricing, blog and booking ecosystem.
+                Tinycopic v7 is designed to feel closer to a flagship luxury studio site — one that can grow naturally into a full portfolio, pricing, blog and booking ecosystem.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
