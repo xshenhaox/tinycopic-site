@@ -15,26 +15,56 @@ const services = [
   {
     title: "Portrait Photography",
     desc: "Editorial-style portrait sessions for personal branding, birthdays, graduation and elevated social content.",
+    images: [
+      "/images/services/portrait-01.jpg",
+      "/images/services/portrait-02.jpg",
+      "/images/services/portrait-03.jpg",
+    ],
   },
   {
     title: "Family Photography",
     desc: "Warm, natural family sessions designed to capture connection, movement and timeless memories.",
+    images: [
+      "/images/services/family-01.jpg",
+      "/images/services/family-02.jpg",
+      "/images/services/family-03.jpg",
+    ],
   },
   {
     title: "Kids Photography",
     desc: "Creative children sessions with playful styling, expressive posing and story-driven sets.",
+    images: [
+      "/images/services/kids-01.jpg",
+      "/images/services/kids-02.jpg",
+      "/images/services/kids-03.jpg",
+    ],
   },
   {
     title: "Newborn Photography",
     desc: "Soft, safe and elegant newborn portraits with a calm studio experience for first-time parents.",
+    images: [
+      "/images/services/newborn-01.jpg",
+      "/images/services/newborn-02.jpg",
+      "/images/services/newborn-03.jpg",
+    ],
   },
   {
     title: "Bridal Photography",
     desc: "Refined bridal and pre-wedding imagery with a luxury studio aesthetic and polished posing direction.",
+    images: [
+      "/images/services/bridal-01.jpg",
+      "/images/services/bridal-02.jpg",
+      "/images/services/bridal-03.jpg",
+    ],
   },
   {
     title: "Commercial Photography",
     desc: "Brand visuals, founder portraits and campaign-ready content for modern businesses and creators.",
+    images: [
+      "/images/services/commercial-01.jpg",
+      "/images/services/commercial-02.jpg",
+      "/images/services/commercial-03.jpg",
+    ],
   },
 ];
 
@@ -343,16 +373,29 @@ function Services() {
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((item) => (
-            <div key={item.title} className="rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-              <h3 className="text-xl font-semibold text-neutral-950">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
-            </div>
-          ))}
+  <div
+    key={item.title}
+    className="rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+  >
+    <h3 className="text-xl font-semibold text-neutral-950">{item.title}</h3>
+    <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
+
+    <div className="mt-5 grid grid-cols-3 gap-3">
+      {item.images.map((img, index) => (
+        <div
+          key={index}
+          className="overflow-hidden rounded-2xl border border-stone-200 bg-stone-100"
+        >
+          <img
+            src={img}
+            alt={`${item.title} ${index + 1}`}
+            className="h-24 w-full object-cover"
+          />
         </div>
-      </div>
-    </section>
-  );
-}
+      ))}
+    </div>
+  </div>
+))}
 
 function Portfolio() {
   return (
