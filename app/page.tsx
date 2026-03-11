@@ -1,7 +1,8 @@
 const siteConfig = {
-  studioName: "Tinycopic Photography Studio",
+  studioName: "Tinyco Photography Studio",
   city: "Boston",
   email: "tinycopic@gmail.com",
+  wechat: "tinycopic",
   instagram: "tinycopic",
   calendlyUrl: "https://calendly.com/shenhao83043431/30min",
   primaryDomain: "tinycopic.com",
