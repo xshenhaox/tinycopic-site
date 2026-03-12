@@ -469,6 +469,35 @@ function Portfolio() {
   );
 }
 
+function Testimonials() {
+  return (
+    <section className="py-20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <SectionHeader
+          eyebrow="Testimonials"
+          title="Trust-building social proof"
+          description="Luxury studios convert better when strong visuals are backed by calm, credible client language."
+        />
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          {testimonials.map((item) => (
+            <div
+              key={item.name}
+              className="rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm"
+            >
+              <p className="text-base leading-8 text-neutral-700">
+                “{item.text}”
+              </p>
+              <div className="mt-6 text-sm font-medium text-neutral-500">
+                {item.name}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Experience() {
   return (
     <section id="experience" className="py-20">
