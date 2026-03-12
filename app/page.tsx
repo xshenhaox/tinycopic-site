@@ -371,31 +371,42 @@ function Services() {
           title="Core studio services"
           description="A cleaner, stronger services section that positions Tinycopic as a premium full-category Boston studio."
         />
+
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((item) => (
-  <div
-    key={item.title}
-    className="rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-  >
-    <h3 className="text-xl font-semibold text-neutral-950">{item.title}</h3>
-    <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
+            <div
+              key={item.title}
+              className="rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            >
+              <h3 className="text-xl font-semibold text-neutral-950">
+                {item.title}
+              </h3>
 
-    <div className="mt-5 grid grid-cols-3 gap-3">
-      {item.images.map((img, index) => (
-        <div
-          key={index}
-          className="overflow-hidden rounded-2xl border border-stone-200 bg-stone-100"
-        >
-          <img
-            src={img}
-            alt={`${item.title} ${index + 1}`}
-            className="h-24 w-full object-cover"
-          />
+              <p className="mt-3 text-sm leading-7 text-neutral-600">
+                {item.desc}
+              </p>
+
+              <div className="mt-5 grid grid-cols-3 gap-3">
+                {item.images.map((img, index) => (
+                  <div
+                    key={index}
+                    className="overflow-hidden rounded-2xl border border-stone-200 bg-stone-100"
+                  >
+                    <img
+                      src={img}
+                      alt={`${item.title} ${index + 1}`}
+                      className="h-24 w-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  </div>
-))}
+      </div>
+    </section>
+  );
+}
 
 function Portfolio() {
   return (
@@ -442,33 +453,15 @@ function Portfolio() {
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <div className="rounded-[24px] border border-white/10 bg-black/18 p-4 backdrop-blur-md">
-                  <div className="text-xl font-semibold text-white">{item.title}</div>
-                  <div className="mt-1 text-sm text-white/75">Tinycopic Highlight</div>
+                  <div className="text-xl font-semibold text-white">
+                    {item.title}
+                  </div>
+                  <div className="mt-1 text-sm text-white/75">
+                    Tinycopic Highlight
+                  </div>
                 </div>
               </div>
             </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Testimonials() {
-  return (
-    <section className="py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Testimonials"
-          title="Trust-building social proof"
-          description="Luxury studios convert better when strong visuals are backed by calm, credible client language."
-        />
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((item) => (
-            <div key={item.name} className="rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm">
-              <p className="text-base leading-8 text-neutral-700">“{item.text}”</p>
-              <div className="mt-6 text-sm font-medium text-neutral-500">{item.name}</div>
-            </div>
           ))}
         </div>
       </div>
